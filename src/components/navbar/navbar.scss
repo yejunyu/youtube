@@ -5,7 +5,11 @@
     top: 0;
     z-index: 999;
     width: 100%;
-    background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.5), 50%);
+    background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.5) 50%);
+
+    &.scrolled {
+        background-color: var(--primary-color)
+    }
 
     .container {
         display: flex;

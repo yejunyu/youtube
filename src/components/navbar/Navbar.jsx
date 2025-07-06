@@ -3,9 +3,15 @@ import "./navbar.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { useState } from "react";
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+  };
   return (
-    <div className="navbar">
+    <div className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="left">
           <img
@@ -21,20 +27,19 @@ const Navbar = () => {
           <span>Contact</span>
         </div>
         <div className="right">
-          <SearchIcon className="icon"/>
+          <SearchIcon className="icon" />
           <span>KID</span>
-          <NotificationsIcon className="icon"/>
+          <NotificationsIcon className="icon" />
           <img
             src="https://miaobi-lite.bj.bcebos.com/miaobi/5mao/b%276Jyh56yU5bCP5paw5oOF5L6j5aS05YOPXzE3Mjg5NDgyODguMjQ1MjcyMg%3D%3D%27/0.png"
             alt=""
           />
           <div className="profile">
-
-          <ArrowDropDownIcon className="icon"/>
-          <div className="optional">
-            <span>Settings</span>
-            <span>Logout</span>
-          </div>
+            <ArrowDropDownIcon className="icon" />
+            <div className="optional">
+              <span>Settings</span>
+              <span>Logout</span>
+            </div>
           </div>
         </div>
       </div>
